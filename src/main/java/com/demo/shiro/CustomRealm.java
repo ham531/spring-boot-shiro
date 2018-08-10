@@ -34,8 +34,8 @@ public class CustomRealm extends AuthorizingRealm {
 		if (!Objects.equals(username, "zhang")) {
 			throw new UnknownAccountException();
 		}
-		String md5Hash = new Md5Hash(password,"").toString();
-		if (Objects.equals(password, "123")) {
+		new Md5Hash(password,"");
+		if (!Objects.equals(password, "123")) {
 			throw new IncorrectCredentialsException();
 		}
 		return new SimpleAuthenticationInfo(username, password, "CustomRealm");
